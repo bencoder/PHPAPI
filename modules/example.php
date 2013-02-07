@@ -14,7 +14,7 @@ class example_api extends controller {
 		$d1 = $_POST["data1"];
 		$d2 = $_POST["data2"];
 
-		if (is_empty($d1) || is_empty($d2))
+		if (empty($d1) || empty($d2))
 			return helpers::create_error(101);
 		
 		return helpers::create_response(array("data1" => $d1, "data2" => $d2));
@@ -23,6 +23,7 @@ class example_api extends controller {
 	
 	/**
 		Returns the first parameter in the query string
+		@numparams: 1
 	*/
 	function echo_data($data) {
 		return helpers::create_response($data);
